@@ -47,4 +47,7 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-
+# Gradle
+gradle/
+build/
+gradlew
