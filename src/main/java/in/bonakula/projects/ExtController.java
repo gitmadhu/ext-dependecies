@@ -21,6 +21,27 @@ public class ExtController {
         return extensionsService.getAllExtensions();
     }
 
+    @GetMapping("/details/{extname}")
+    public Extensions getExtensionDetailsByName(@PathVariable  String extname){
+        return extensionsService.getExtensionsByName(extname);
+    }
+
+    @GetMapping("/info")
+    public String getExtensionsInfo(){
+        String info = " Extensions in dependency order  options: \n" +
+                "     @deprecated: is deprecated, \n " +
+                "     p: platform extension, \n" +
+                "     *: auto-required \n" +
+                "     ?: lazy-loaded, \n" +
+                "     i: got items.xml, \n" +
+                "     b: got beans.xml, \n" +
+                "     c: got core module \n" +
+                "     w: got web module ) \n";
+        return info;
+    }
+
+
+
 
     @GetMapping("/{extname}")
     public Dependency getExtensionByName(@PathVariable  String extname){
